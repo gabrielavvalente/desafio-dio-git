@@ -1,0 +1,39 @@
+	• Sistema de versionamento de codigo distribuido
+	• Linus Torvalds
+	• Github: Local de armazenamento dos arquivos > Repositorio
+	• Git: CLI: Command line interface
+		dir	Listar arquivos
+		Cd /	vootar para o root
+		Cd ..	Voltar para pasta anterior
+		Cls	limpar terminal
+		mkdir	criar diretorio
+		del	Deletar arquivo
+		rmdir	Remover diretorio
+		Ctrl+l	
+
+COMO FUNCIONA O GIT
+
+	• SHA1: Secure Hash Algorithm 
+	Criptografa o conteudo de um arquivo em 40 caracteresunicos, para identificar e presentar este arquivo
+	• Objetos internos
+		○ Blobs: Compostos por metadados, tipo, tamanho, \0, conteudo do arquivo
+		○ Trees: Armazenam e apontam para blovlos (ou trees) + nome do arquivos 
+			§ É tambem criptografada em sha1. Qualquer mudança na estrutura da arvore ou no que ela contem (blobs) gera um novo codigo.
+		○ Commit: Aponta para um arvore, aponta para um parente (ultimo commit), para o autor, para mensagem e timestamp.
+			§ É tambem criptografada em sha1. Qualquer mudança na estrutura da arvore ou no que ela contem (trees, blobs) gera um novo codigo.
+			§ Por isso, quando um commit é feito, é garantido que o codigo lá dentro é seguro e rastrevel quanto mudanças
+	• ChaveSSH: Estabelece a conexação segura entre 2 maquinas (servidor + PC pessoall)
+	• Token de acesso: Gerar token no github sempre que fizer o commit vai perdir: nick, senha, toke
+
+
+
+PASSO A PASSO
+
+No ambiente de desenvolvimento, você tem o ambiente de trabalho e tem a staging area.Os arquivos vão sempre ficar entre o local de trabalho e o repositorio. O commit é a chave para integrar o seu repositorio local
+Commit, ou seja, envelopa modificações e escreve euma mensagem para o commit. O commit retorna os arquivos para unmodified.
+	• Gera um novo objeto com um sha1 especifico
+	• Atualiza seu repositorio local e deixa a estrutura atualizada para possivelmente enviar para o servidor
+
+Git add nomeDoArquivo	Adiciona arquivos a staged area
+Git add *	Adiciona todos arquivos untracked/modified a staged area
+Git commit -m "msg"	Commita a staged area ao repositorio local
